@@ -12,5 +12,8 @@ train_input, test_input, train_target, test_target = train_test_split(data, targ
 from sklearn.model_selection import cross_validate
 from sklearn.ensemble import RandomForestClassifier
 rf = RandomForestClassifier(n_jobs = -1, random_state=42)
-scores = cross_validate(rf, train_input, train_target, return_train_score=True, n_jbos=-1)
+scores = cross_validate(rf, train_input, train_target, return_train_score=True, n_jobs=-1)
 print(np.mean(scores['train_score']), np.mean(scores['test_score']))
+
+rf.fit(train_input, train_target)
+print(rf.feature_importances_)
