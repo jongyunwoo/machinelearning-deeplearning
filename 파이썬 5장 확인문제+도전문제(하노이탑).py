@@ -27,3 +27,21 @@ def top(n, start, final, support):
         return
 n = int(input("원판의 개수를 입력하세요: "))
 top(n, start='A', final = 'B', support = 'C')
+
+#하노이탑 이동 횟수
+count = 0
+def top(n, start, final, support):
+    global count
+    if n == 1:
+        count += 1
+        return
+    elif n >= 2:
+        top(n - 1, start, support, final)
+        count += 1
+        top(n - 1, support, final, start)
+        return
+    print(count)
+n = int(input("원판의 개수를 입력하세요: "))
+top(n, start='A', final = 'B', support = 'C')
+print("이동 횟수는 {}회입니다.".format(count))
+
