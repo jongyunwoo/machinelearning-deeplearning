@@ -62,3 +62,16 @@ plt.xlabel('epoch')
 plt.ylabel('loss')
 plt.legend(['train', 'val'])
 plt.show()
+
+#드롭아웃
+model = model_fn(keras.layers.Dropout(0.3))
+model.summary()
+
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics='accuracy')
+history = model.fit(train_scaled, train_target, epochs = 20, verbose=0, validation_data = (val_scaled, val_target))
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.xlabel('epoch')
+plt.ylabel('loss')
+plt.legend(['train', 'val'])
+plt.show()

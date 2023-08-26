@@ -47,3 +47,4 @@ model.add(keras.layers.Dense(10, activation='softmax'))
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics='accuracy')
 model.fit(train_scaled, train_target, epochs=5)
+
