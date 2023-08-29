@@ -63,7 +63,7 @@ conv2_acti = keras.Model(model.input, model.layers[2].output)
 inputs = train_input[0:1].reshape(-1, 28, 28,1) /255.0
 feature_maps = conv2_acti.predict(inputs)
 print(feature_maps.shape)
-
+  
 fig, axs = plt.subplots(8, 8, figsize = (12, 12))
 for i in range(8):
     for j in range(8):
